@@ -1,0 +1,1 @@
+docker build -t ert/sshd _docker
