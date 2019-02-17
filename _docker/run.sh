@@ -53,6 +53,14 @@ echo "passwd: files" > /home/$CDIR/etc/nsswitch.conf
 echo "group: files" >> /home/$CDIR/etc/nsswitch.conf
 }
 
+if [ ! -f /etc/ssh/keys/ssh_host_rsa_key ]; then
+  ssh-keygen -q -t rsa -f /etc/ssh/keys/ssh_host_rsa_key -C ""  -N ""
+  #ssh-keygen -q -t dsa -f /etc/ssh/keys/ssh_host_dsa_key -C ""  -N ""
+  ssh-keygen -q -t ecdsa -f /etc/ssh/keys/ssh_host_ecdsa_key -C ""  -N ""
+  ssh-keygen -q -t ed25519 -f /etc/ssh/keys/ssh_host_ed25519_key -C ""  -N ""
+fi
+
+
 while read -r line
 do
     echo "User: $line"

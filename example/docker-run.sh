@@ -2,7 +2,6 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 cd $DIR
 
-
 docker stop ssh-chroot
 docker rm ssh-chroot
 
@@ -19,5 +18,6 @@ done < "$DIR/users"
 docker run -d -p 2222:22 \
  $MOUNT \
  -v $DIR/users:/users \
+ -v $DIR/keys:/etc/ssh/keys \
  --name ssh-chroot \
  ertong/ssh-chroot
