@@ -1,1 +1,1 @@
-docker build -t ert/sshd _docker
+docker build -t ertong/ssh-chroot _docker
